@@ -12,8 +12,6 @@
 
 .master-container{
     display: flex;
-    width: 600px;
-    height: 600px;
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
@@ -44,6 +42,7 @@
 }
 
 .modal-container {
+    display: none;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
