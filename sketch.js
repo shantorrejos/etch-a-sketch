@@ -1,13 +1,3 @@
-const activateButton = document.querySelector('.activate');
-const masterContainer = document.querySelector('.master-container');
-
-activateButton.addEventListener('click', () => {
-    initializeCanvas();
-});
-
-let test = 0;
-
-
 function initializeCanvas() {
     for (let i = 0; i < 16; i++) {
         
@@ -21,4 +11,26 @@ function initializeCanvas() {
             tempContainDiv.appendChild(tempDiv);
         }
     }
+
+    activateCanvas();
 }
+
+
+function activateCanvas() {
+    const allDivPixels = document.querySelectorAll('.divPixel');
+
+    masterContainer.addEventListener('mouseover', (event) => {
+        let target = event.target;
+        console.log(target);
+        target.classList.add('colored');
+    })
+}
+
+const activateButton = document.querySelector('.activate');
+const masterContainer = document.querySelector('.master-container');
+
+activateButton.addEventListener('click', () => {
+    initializeCanvas();
+});
+
+

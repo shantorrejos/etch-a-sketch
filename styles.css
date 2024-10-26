@@ -34,3 +34,7 @@
 .divPixel:hover{
     background-color: blue;
 }
+
+.divPixel.colored {
+    background-color: brown;
+}
