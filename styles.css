@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubbler+One&display=swap');
+
+* {
+    font-family: 'Bubbler One';
+}
+
+.title {
+    font-size: 96px;
+    text-align: center;
+    margin: 80px 0px;
+}
+
+.master-container{
+    display: flex;
+    width: fit-content;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    border: solid;
+    border-width: 1px;
+}
+
+
+
+.divPixel{
+    width: 30px;
+    height: 30px;
+    background-color: aqua;
+    border: solid;
+    border-width: 1px;
+    display: flex;
+}
+
+.divPixel:hover{
+    background-color: blue;
+}
