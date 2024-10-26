@@ -56,8 +56,10 @@ function generateRandomColor(arr) {
     return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`
 }
 
-
+// Paint with black brush
 function colorPixelNormal(event) {
+
+    // If ctrl key is pressed, paint. If shift, erase
     if (event.ctrlKey) {
         let target = event.target;
         target.style.backgroundColor = '#2e2e2e';
@@ -68,8 +70,10 @@ function colorPixelNormal(event) {
     } 
 }
 
-
+// Paint with rainbow brush
 function colorPixelRainbow(event) {
+
+    // If ctrl key is pressed, paint. If shift, erase
     if (event.ctrlKey) {
         let target = event.target;
         target.style.backgroundColor = generateRandomColor([0, 0, 0]);
@@ -120,7 +124,7 @@ modalButton.addEventListener('click', () => {
     initializeCanvas(canvasWidth, canvasHeight, canvasResolution);
 });
 
-// If user hovers with ctrl: paint, with shift: erase
+// Hover listener. Checks whether to use normal brush or rainbow brush.
 masterContainer.addEventListener('mouseover', (event) => {
     if (rainbow === false) {
         colorPixelNormal(event);
