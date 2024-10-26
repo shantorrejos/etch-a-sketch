@@ -5,14 +5,12 @@ function initializeCanvas() {
         tempContainDiv.classList.add('divContainPixel');
         masterContainer.appendChild(tempContainDiv);
 
-
         for (let j = 0; j < 16; j++) {
             let tempDiv = document.createElement("div");
             tempDiv.classList.add('divPixel');
             tempContainDiv.appendChild(tempDiv);
         }
     }
-
     activateCanvas();
 }
 
@@ -25,6 +23,11 @@ function activateCanvas() {
         console.log(target);
         target.classList.add('colored');
     })
+}
+
+
+function takeUserCanvas() {
+
 }
 
 const activateButton = document.querySelector('.activate');

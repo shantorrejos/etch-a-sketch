@@ -42,3 +42,57 @@
 .divPixel.colored {
     background-color: brown;
 }
+
+.modal-container {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 20px;
+    width: 15%; /* Could be more or less, depending on screen size */
+}
+  
+
+.modal-title{
+    margin: 20px 0px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.canvasdetails-container{
+    border: 1px solid #888;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.form{
+    margin: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    width: 50px;
+}
+    
+
+.buttonHouse{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.submitButton{
+    font-size: 20px;
+}
