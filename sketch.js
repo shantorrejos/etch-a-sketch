@@ -35,17 +35,50 @@ function clearCanvas() {
     console.log('divs cleared');
 }
 
-// function takeUserCanvas() {
-//     modal.style.display = 'block';
+// generates a random base color: returns rgb(x, y, z)
+// XYZ can be either 0, 150, 250. This restricts color selection to onloy vibrant colors
+function generateRandomColor(arr) {
+    let rgb = arr;
+    let x;
 
-//     const modalWidth = document.querySelector('#canvasWidth');
-//     const modalHeight = document.querySelector('#canvasHeight');
-//     const modalResolution = document.querySelector('#canvasResolution');
+    for (let i = 0; i < rgb.length; i++) {
+        x = Math.floor((Math.random() * 3) + 1);
 
-//     canvasWidth = modalWidth.value;
-//     canvasHeight = modalHeight.value;
-//     canvasResolution = modalResolution.value;    
-// }
+        if (x === 1) {
+            rgb[i] = 0
+        } else if (x === 2){
+            rgb[i] = 150
+        } else if (x === 3){
+            rgb[i] = 255
+        }
+    }
+
+    return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`
+}
+
+
+function colorPixelNormal(event) {
+    if (event.ctrlKey) {
+        let target = event.target;
+        target.style.backgroundColor = '#2e2e2e';
+    }
+    else if (event.shiftKey) {
+        let target = event.target;
+        target.style.backgroundColor = 'antiquewhite';
+    } 
+}
+
+
+function colorPixelRainbow(event) {
+    if (event.ctrlKey) {
+        let target = event.target;
+        target.style.backgroundColor = generateRandomColor([0, 0, 0]);
+    }
+    else if (event.shiftKey) {
+        let target = event.target;
+        target.style.backgroundColor = 'antiquewhite';
+    } 
+}
 
 const activateButton = document.querySelector('.activate');
 const masterContainer = document.querySelector('.master-container');
@@ -54,10 +87,15 @@ const modalButton = document.querySelector('.submitButton');
 const modalWidth = document.querySelector('#canvasWidth');
 const modalHeight = document.querySelector('#canvasHeight');
 const modalResolution = document.querySelector('#canvasResolution');
+const eraseButton = document.querySelector('.eraseAll');
+const toggleGrid = document.querySelector('.toggleGrid');
+const toggleRainbow = document.querySelector('.toggleRainbow');
 
 let canvasWidth = 600;
 let canvasHeight = 600;
 let canvasResolution = 16;
+let toggleBorder = true;
+let rainbow = false;
 
 initializeCanvas(canvasWidth, canvasHeight, canvasResolution);
 
@@ -82,9 +120,52 @@ modalButton.addEventListener('click', () => {
     initializeCanvas(canvasWidth, canvasHeight, canvasResolution);
 });
 
+// If user hovers with ctrl: paint, with shift: erase
 masterContainer.addEventListener('mouseover', (event) => {
-    if (event.ctrlKey) {
-        let target = event.target;
-        target.classList.add('colored');
+    if (rainbow === false) {
+        colorPixelNormal(event);
+    } else if (rainbow === true) {
+        colorPixelRainbow(event);
     }
 })
+
+// Erase all: Removes the colored class from all pixel divs
+eraseButton.addEventListener('click', () => {
+    const gridDivPixel = document.querySelectorAll('.divPixel')
+    gridDivPixel.forEach(div => {
+        div.style.backgroundColor = 'antiquewhite';
+    })
+})
+
+
+// Toggle the black grid
+toggleGrid.addEventListener('click', () => {
+    const gridDivPixel = document.querySelectorAll('.divPixel')
+
+    // Checks if toggle === or =/= true, adds or removes border, set it darkgray, then change the toggle.
+    if (toggleBorder === true) {
+        gridDivPixel.forEach(div => {
+        div.style.border = '1px solid'
+        })
+        toggleBorder = false
+        toggleGrid.style.backgroundColor = 'darkgray';
+    } else if (toggleBorder === false) {
+        gridDivPixel.forEach(div => {
+            div.style.border = '0px solid'
+            })
+        toggleBorder = true;
+        toggleGrid.style.backgroundColor = '';
+    }
+})
+
+toggleRainbow.addEventListener('click', () => {
+
+    rainbow = !rainbow
+    if (rainbow === true) {
+        toggleRainbow.style.backgroundColor = 'darkgray'
+    } else if (rainbow === false){
+        toggleRainbow.style.backgroundColor = '';
+    }
+    
+});
+

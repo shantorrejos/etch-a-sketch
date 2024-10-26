@@ -8,12 +8,14 @@
     font-size: 96px;
     text-align: center;
     margin: 20px 0px;
+    color: antiquewhite;
 }
 
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #262b52;
 }
 
 .activate{
@@ -48,6 +50,7 @@ body{
 .divPixel.colored {
     background-color:#2e2e2e;
 }
+
 
 .modal-container {
     display: none;
