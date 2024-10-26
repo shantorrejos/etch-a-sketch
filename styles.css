@@ -12,7 +12,8 @@
 
 .master-container{
     display: flex;
-    width: fit-content;
+    width: 600px;
+    height: 600px;
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
@@ -20,11 +21,14 @@
     border-width: 1px;
 }
 
-
+.divContainPixel {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
 
 .divPixel{
-    width: 30px;
-    height: 30px;
+    flex-grow: 1;
     background-color: aqua;
     border: solid;
     border-width: 1px;

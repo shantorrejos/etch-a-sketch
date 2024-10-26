@@ -2,6 +2,7 @@ function initializeCanvas() {
     for (let i = 0; i < 16; i++) {
         
         let tempContainDiv = document.createElement('div');
+        tempContainDiv.classList.add('divContainPixel');
         masterContainer.appendChild(tempContainDiv);
 
 
