@@ -64,6 +64,13 @@ initializeCanvas(canvasWidth, canvasHeight, canvasResolution);
 // display the modal if button is clicked
 activateButton.addEventListener('click', () => {
     modal.style.display = 'block';
+
+    // If user changes their mind
+    window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      } 
 });
 
 // the modal is displayed; clicking the button takes the user input values
@@ -76,6 +83,8 @@ modalButton.addEventListener('click', () => {
 });
 
 masterContainer.addEventListener('mouseover', (event) => {
-    let target = event.target;
-    target.classList.add('colored');
+    if (event.ctrlKey) {
+        let target = event.target;
+        target.classList.add('colored');
+    }
 })
